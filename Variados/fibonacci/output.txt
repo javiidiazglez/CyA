@@ -1,0 +1,3 @@
+Hello is the Fibonacci word number 1 and the 1 word in the file
+HelloWorld is the Fibonacci word number 2 and the 2 word in the file
+HelloWorldHello is not a Fibonacci word and is the 3 word in the file
