@@ -5,6 +5,6 @@ Repositorio para las prácticas de la asignatura de Computabilidad y Algoritmia 
 - Alumno: José Javier Díaz González
 
 ### Listado de prácticas:
-- #### [Prácticas](https://github.com/alu0101128894/CyA/tree/main/Pr%C3%A1cticas)
+- #### [Prácticas 2022](https://github.com/alu0101128894/CyA/tree/main/2022)
 
-- #### [Pruebas](https://github.com/alu0101128894/CyA/tree/main/Pruebas)
+- #### [Prácticas 2020](https://github.com/alu0101128894/CyA/tree/main/2020)
