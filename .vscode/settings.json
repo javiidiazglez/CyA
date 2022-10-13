@@ -1,6 +1,5 @@
 {
   "files.associations": {
-    "set": "cpp",
     "array": "cpp",
     "atomic": "cpp",
     "bit": "cpp",
@@ -13,9 +12,11 @@
     "cstdint": "cpp",
     "cstdio": "cpp",
     "cstdlib": "cpp",
+    "ctime": "cpp",
     "cwchar": "cpp",
     "cwctype": "cpp",
     "deque": "cpp",
+    "set": "cpp",
     "unordered_map": "cpp",
     "vector": "cpp",
     "exception": "cpp",
@@ -35,6 +36,7 @@
     "utility": "cpp",
     "fstream": "cpp",
     "initializer_list": "cpp",
+    "iomanip": "cpp",
     "iosfwd": "cpp",
     "iostream": "cpp",
     "istream": "cpp",
@@ -45,7 +47,5 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp"
-  },
-  "docwriter.language": "Spanish",
-  "docwriter.style": "RustDoc"
+  }
 }
