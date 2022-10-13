@@ -38,7 +38,7 @@ Language Language::Concatenation(Language language_2) {
   return Language(vector_chain, input_alphabet);  // Devolviendo un nuevo lenguaje con las cadenas3 y el input_alphabet.
 }
 
-// Unión de dos lenguaje.
+// Unión de dos lenguaje. Comunes y no comunes
 Language Language::Union(Language& language_2) {
   // Alphabet input_alphabet = alphabet_language_;
   std::set<Chain> vector_chain = language_;
@@ -49,9 +49,7 @@ Language Language::Union(Language& language_2) {
   // Union cadenas = Mismo lenguaje
   for (auto chain : language_) {
     for (auto chain2 : language_2.language_) {
-      if (chain == chain2) {
-        vector_chain.insert(chain2);  // Insertando chain2 en vector_chain.
-      }
+      vector_chain.insert(chain2);  // Insertando chain2 en vector_chain.
     }
   }
   return Language(vector_chain, alphabet_language_);

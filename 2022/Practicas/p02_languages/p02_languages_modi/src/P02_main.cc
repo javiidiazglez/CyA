@@ -29,6 +29,7 @@ int main(int argc, char* argv[]) {
   std::string input_2{argv[2]};
   std::string output{argv[3]};
   std::string opcode{argv[4]};
+  std::string chain{argv[5]};  // Que salga la cadena
 
   const int kOpcode = stoi(opcode);
   int power;
@@ -36,19 +37,22 @@ int main(int argc, char* argv[]) {
   // Abriendo el archivo en la ruta ./input_1
   std::ifstream filein1{"./" + input_1};
   if (!filein1) {
-    std::cerr << "Error: El fichero '" << input_1 << "' no se puede abrir. Pruebe de nuevo.\n" << std::endl;
+    std::cerr << "Error: El fichero '" << input_1 << "' no se puede abrir. Pruebe de nuevo.\n"
+              << std::endl;
     exit(EXIT_FAILURE);
   }
   // Abriendo el archivo en la ruta ./input_2
   std::ifstream filein2{"./" + input_2};
   if (!filein2) {
-    std::cerr << "Error: El fichero'" << input_2 << "' no se puede abrir. Pruebe de nuevo.\n" << std::endl;
+    std::cerr << "Error: El fichero'" << input_2 << "' no se puede abrir. Pruebe de nuevo.\n"
+              << std::endl;
     exit(EXIT_FAILURE);
   }
   // Abriendo el archivo en la ruta ./output
   std::ofstream fileout{"./" + output};
   if (!fileout) {
-    std::cerr << "Error: El fichero'" << output << "' no se puede abrir. Pruebe de nuevo.\n" << std::endl;
+    std::cerr << "Error: El fichero'" << output << "' no se puede abrir. Pruebe de nuevo.\n"
+              << std::endl;
     exit(EXIT_FAILURE);
   }
   // Al verificar si el código de operación es 6, si lo es, le preguntará al usuario la potencia a la que se elevará
@@ -58,28 +62,28 @@ int main(int argc, char* argv[]) {
   }
   // Leer el archivo hasta que llegue al final del archivo.
   while (!filein1.eof() && !filein2.eof()) {
-    Language language_1, language_2;
-    filein1 >> language_1;
-    filein2 >> language_2;
+    Language filein1_language_1, filein2_language_2;
+    filein1 >> filein1_language_1;
+    filein2 >> filein2_language_2;
 
     switch (kOpcode) {
       case 1:
-        fileout << language_1.Concatenation(language_2) << std::endl;  // Concatenación
+        fileout << filein1_language_1.Concatenation(filein2_language_2) << chain << " }" << std::endl;  // Concatenación
         break;
       case 2:
-        fileout << language_1.Union(language_2) << std::endl;  // Union
+        fileout << filein1_language_1.Union(filein2_language_2) << chain << " }" << std::endl;  // Union
         break;
       case 3:
-        fileout << language_1.Intersection(language_2) << std::endl;  // Intersección
+        fileout << filein1_language_1.Intersection(filein2_language_2) << chain << " }" << std::endl;  // Intersección
         break;
       case 4:
-        fileout << language_1.Difference(language_2) << std::endl;  // Diferencia
+        fileout << filein1_language_1.Difference(filein2_language_2) << chain << " }" << std::endl;  // Diferencia
         break;
       case 5:
-        fileout << language_1.Inverse() << std::endl;  // Inversa
+        fileout << filein1_language_1.Inverse() << chain << " }" << std::endl;  // Inversa
         break;
       case 6:
-        fileout << language_1.Power(power) << std::endl;  // Potencia
+        fileout << filein1_language_1.Power(power) << chain << " }" << std::endl;  // Potencia
         break;
       default:
         std::cerr << kOpcode;
@@ -87,6 +91,7 @@ int main(int argc, char* argv[]) {
         break;
     }
   }
+  std::cout << "Modificación: Agregar una cadena nueva al fileout.txt";
   std::cout << "Funciona correctamente\n -> Fichero de salida: 'fileout.txt'" << std::endl;
 
   filein1.close();

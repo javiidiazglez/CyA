@@ -24,7 +24,7 @@ void Usage(int argc, char* argv[]) {
   }
   if (argc != 5 && argc > 1) {
     std::string parameter{argv[1]};
-    if (parameter == "--help" || "--h") {
+    if (parameter == "--help") {
       std::cout << kInstruction << std::endl;
       exit(EXIT_SUCCESS);
     }
