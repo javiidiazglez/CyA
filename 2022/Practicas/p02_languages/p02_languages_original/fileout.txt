@@ -1,0 +1,6 @@
+{ a b c } { aaaaaa aaaaabc aaabcaa abcaaaa aaaacabb aaabcabc aacabbaa abcaaabc abcabcaa cabbaaaa aaabccabb aacabbabc abcaacabb abcabcabc abccabbaa cabbaaabc cabbabcaa aacabbcabb abcabccabb abccabbabc cabbaacabb cabbabcabc cabbcabbaa abccabbcabb cabbabccabb cabbcabbabc cabbcabbcabb }
+{ a } { aaa }
+{ a b } { }
+{ 0 1 } { & }
+{ 0 1 } { 000 001 010 011 100 101 110 111 }
+{ 0 1 } { 000 001 010 011 100 101 110 111 }
