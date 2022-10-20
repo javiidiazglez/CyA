@@ -47,5 +47,6 @@
     "typeinfo": "cpp"
   },
   "docwriter.language": "Spanish",
-  "docwriter.style": "RustDoc"
+  "docwriter.style": "RustDoc",
+  "C_Cpp.errorSquiggles": "Disabled"
 }

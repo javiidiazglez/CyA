@@ -80,7 +80,8 @@ Language Language::Difference(Language& language_2) {
     std::cerr << "Error: No se puede hacer la intersección de los lenguajes " << *this << " " << language_2 << " porque los alfabetos no son iguales" << std::endl;
     exit(EXIT_FAILURE);
   }
-  // A-B , pertenece en A no en B
+  // quitar cadenas del lenguage 2 al lenguage1 que sean iguales
+  //  al restar la cadena L1-L2 la cadena debe pertenecer a L1 pero no a L2
   for (auto chain : language_) {
     for (auto chain2 : language_2.language_) {
       if (chain == chain2) {
