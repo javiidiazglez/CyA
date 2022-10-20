@@ -11,23 +11,18 @@
 # Historial de revisiones
 # 20/10/2022 - Creación (primera versión) del Makefile
 
+CXX = g++
+CXXFLAGS = -g -w -std=c++17
+NAMEGLAGS = -o
+SRC = src
+EXECUTABLE = p03_calculator
 
-CXX		  := g++ -g -w
-CXX_FLAGS := -std=c++17
+make:
+	$(CXX) $(CXXFLAGS) ./$(SRC)/*.cc $(NAMEGLAGS) $(EXECUTABLE)
 
-SRC		:= src
-INCLUDE	:= include
+.PHONY: all clean
 
-EXECUTABLE	:= practica
+	$(CXX) $(CXXFLAGS) -c $<
 
-all: $(EXECUTABLE)
-
-run: clean all
-	clear
-	./$(EXECUTABLE)
-
-$(EXECUTABLE): $(SRC)/*.cc $(INCLUDE)/*.h
-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ 
-
-clean:
-	-rm $(EXECUTABLE)
+clean :
+	rm -f $(EXECUTABLE) *.o

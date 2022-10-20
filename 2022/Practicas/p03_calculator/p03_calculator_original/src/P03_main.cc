@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
   }
   std::cout << "Alfabeto: " << " Lenguaje:" << std::endl;
 
-  Calculator mycalculator;
+  Calculator result_calculator;
   while (!input_file1.eof()) {
     std::string lineLanguaje;
     getline(input_file1, lineLanguaje);
@@ -44,11 +44,11 @@ int main(int argc, char* argv[]) {
       // Creando un nuevo objeto de tipo Idioma con la línea del archivo como parámetro.
       Language language_line(lineLanguaje);
       std::cout << language_line << std::endl;
-      mycalculator.Push_back(language_line);
+      result_calculator.Push_back(language_line);
     } else {
-      std::cout << "Resultado de la expresión en 'Notacion postfija': ";
+      std::cout << "Resultado en 'Notacion postfija': ";
       std::cout << lineLanguaje << " : " << std::endl;
-      std::cout << mycalculator.RPN(lineLanguaje) << std::endl;
+      std::cout << result_calculator.RPN(lineLanguaje) << std::endl;
     }
   }
   input_file1.close();
