@@ -41,8 +41,8 @@ int main(int argc, char** argv) {
   // }
   Expresions ResultProgram(file_in);
   out_file << ResultProgram;
-
-  std::cout << "Funciona correctamente\n -> Fichero de salida: 'codescheme.txt'" << std::endl;
+  std::cout << "José Javier Díaz González.\nPráctica 4. Expresiones Regulares" << std::endl;
+  std::cout << "\nFunciona correctamente\n -> Fichero de salida: 'codescheme.txt'" << std::endl;
 
   return 0;
 }
