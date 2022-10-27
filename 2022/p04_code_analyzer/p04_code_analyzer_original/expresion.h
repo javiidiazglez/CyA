@@ -20,9 +20,9 @@
 
 #include "struct.h"
 
-class Expresions {
+class Expresion {
  public:
-  Expresions(std::string name);  // El constructor de la clase Programa.
+  Expresion(std::string name);  // El constructor de la clase Programa.
   // Getter
   void GetDescription(std::string line_in, int &number_line, std::ifstream &file_in);  // Una función que obtiene la descripción del programa.
   void GetComment(std::string line_in, int &number_line, std::ifstream &file_in);      // Obtener el comentario de la línea de entrada.
@@ -38,7 +38,7 @@ class Expresions {
   void AddVariable(std::string type, std::string value, int line);  // Añadir de una variables al vector de variables.
   void AddStatement(std::string type, std::string name, int line);  // Añadir de una sentencia al vector de sentencias.
 
-  friend std::ostream &operator<<(std::ostream &os, const Expresions &expresion);  // Una función amiga que sobrecarga el operador <<.
+  friend std::ostream &operator<<(std::ostream &os, const Expresion &expresion);  // Una función amiga que sobrecarga el operador <<.
 
  private:
   std::string name_;                          // Una variables privada de la clase Programa.

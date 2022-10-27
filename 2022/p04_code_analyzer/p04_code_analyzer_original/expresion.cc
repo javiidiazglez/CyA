@@ -10,17 +10,17 @@
 // Archivo expresion.cc
 // Definición de la clase
 // Historial de revisiones
-// 27/10/2022 - Actualización (primera versión) del expresions.cc
+// 27/10/2022 - Actualización (primera versión) del expresion.cc
 // 27/10/2022 - Finalización práctica 4
 
-#include "expresions.h"
+#include "expresion.h"
 
 #include <fstream>
 #include <iostream>
 #include <regex>
 
 // El constructor de la clase Programa con una cadena.
-Expresions::Expresions(std::string name) {
+Expresion::Expresion(std::string name) {
   name_ = name;
   has_main = false;  // Inicializa la variables has_main a false.
 
@@ -47,7 +47,7 @@ Expresions::Expresions(std::string name) {
 // - line_in - linea del fichero de entrada
 // - number_line - linea del fichero
 // - file_in - fichero de entrada
-void Expresions::GetDescription(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetDescription(std::string line_in, int &number_line, std::ifstream &file_in) {
   std::regex start_description{"^((\\s)*/\\*.*)"};  // Busca una cadena que comience con "/*"
   std::regex end_description{".*(\\*/)"};           // Busca una cadena que termine con "*/"
   if (std::regex_match(line_in, start_description)) {
@@ -63,7 +63,7 @@ void Expresions::GetDescription(std::string line_in, int &number_line, std::ifst
 }
 
 // Getter comentarios
-void Expresions::GetComment(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetComment(std::string line_in, int &number_line, std::ifstream &file_in) {
   std::regex comment_regex{"^(\\s*(//.*))"};  // Busca una cadena que comience con "//"
   if (std::regex_match(line_in, comment_regex)) {
     AddComment(std::regex_replace(line_in, std::regex("^\\s*"), ""), number_line);  // Reemplazar cualquier blanco o barra por ""
@@ -71,7 +71,7 @@ void Expresions::GetComment(std::string line_in, int &number_line, std::ifstream
 }
 
 // Getter comentario largo
-void Expresions::GetLongComment(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetLongComment(std::string line_in, int &number_line, std::ifstream &file_in) {
   // "^((\\s)*/\\*.*)"
   // Busca una cadena que comience con "*/""
   // Cantidad de caracteres de espacio en blanco antes de la /
@@ -90,7 +90,7 @@ void Expresions::GetLongComment(std::string line_in, int &number_line, std::ifst
   }
 }
 // Getter variable
-void Expresions::GetVariable(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetVariable(std::string line_in, int &number_line, std::ifstream &file_in) {
   // ^\\s*(int|float|double)\\s*&?\\s*([^,;]*?)[,;].*$
   //  - int, flotante o doble
   //  - seguido de un & opcional
@@ -117,7 +117,7 @@ void Expresions::GetVariable(std::string line_in, int &number_line, std::ifstrea
 }
 
 // Getter if, for, whiles
-void Expresions::GetStatement(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetStatement(std::string line_in, int &number_line, std::ifstream &file_in) {
   std::regex statement_regex{"^(\\s*(if|for|while).*)"};  // Busca una cadena que comience con "if", "for" o "while"
   if (std::regex_match(line_in, statement_regex)) {
     std::string type, name;
@@ -136,7 +136,7 @@ void Expresions::GetStatement(std::string line_in, int &number_line, std::ifstre
 }
 
 // Getter main
-void Expresions::GetMain(std::string line_in, int &number_line, std::ifstream &file_in) {
+void Expresion::GetMain(std::string line_in, int &number_line, std::ifstream &file_in) {
   std::regex main_regex{"^(\\s*int\\smain.*)"};  // Busca una cadena que comience con "int main"
 
   if (std::regex_match(line_in, main_regex)) {
@@ -145,46 +145,46 @@ void Expresions::GetMain(std::string line_in, int &number_line, std::ifstream &f
 }
 
 // Setter descripción
-void Expresions::SetDescription(std::string text, int start, int end) {
+void Expresion::SetDescription(std::string text, int start, int end) {
   description_.text = text;
   description_.start = start;
   description_.end = end;
 }
 
 // Obtener comentarios
-void Expresions::AddComment(std::string text, int line) {
+void Expresion::AddComment(std::string text, int line) {
   comments comments{text, line};
   comments_.emplace_back(comments);  // Añade una nueva variable al final del vector.
 }
 
 // Obtener comentarios largos
-void Expresions::AddLongComment(std::string text, int start, int end) {
+void Expresion::AddLongComment(std::string text, int start, int end) {
   // Creando una nueva variable de tipo long_comments e inicializándola con los valores de texto, inicio y final.
   long_comments comments{text, start, end};
   long_comments_.emplace_back(comments);  // Añade una nueva variable al final del vector.
 }
 
 // Función que establece la variable has_main en verdadero.
-void Expresions::HasMain() {
+void Expresion::HasMain() {
   has_main = true;
 }
 
 // Funcion para añadir variables
-void Expresions::AddVariable(std::string type, std::string value, int line) {
+void Expresion::AddVariable(std::string type, std::string value, int line) {
   // Creando una nueva variable de tipo variables e inicializándola con los valores de tipo, valor y línea.
   variables variables{type, value, line};
   variables_.push_back(variables);  // Añade una nueva variable al final del vector.s
 }
 
 // Funicón que agrega una nueva sentencia al vector de sentencias.
-void Expresions::AddStatement(std::string type, std::string name, int line) {
+void Expresion::AddStatement(std::string type, std::string name, int line) {
   // Creando una nueva variable de tipo statements e inicializándola con los valores de tipo, nombre y línea.
   statements statements{type, name, line};
   statements_.push_back(statements);
 }
 
 // Sobrecarga del operador <<
-std::ostream &operator<<(std::ostream &os, const Expresions &expresion) {
+std::ostream &operator<<(std::ostream &os, const Expresion &expresion) {
   os << "PROGRAM: " << expresion.name_ << "\n";
   os << "DESCRIPTION: \n"
      << expresion.description_.text << "\n";

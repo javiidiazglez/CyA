@@ -1,0 +1,37 @@
+PROGRAM: ej_factorial.cc
+DESCRIPTION: 
+/**
+ * José Javier Díaz González
+ * Universidad de La Laguna
+ * Escuela Superior de Ingenieria y Tecnologia
+ * Informatica Basica
+ *
+ * @author F. de Sande
+ * @date 23.nov .2020
+ * @brief Ejercicios propuestos en las practicas de IB
+ * La f u n c i n exponencial , f(x)=ex, se puede calcular mediante
+ * su desarrollo en serie de Taylor. Cuantos mas terminos
+ * tome de la serie , mayor sera la precision de la aproximacion
+ * a la funcion.
+ *
+ * Version 1: Funcion factorial
+ *
+ * @see https :// github.com/fsande/IB-P07 -Functions/blob/master/Functions
+   .md
+ * @see https :// wesmckinney.com/blog/avoid -unsigned -integers/
+ */
+
+VARIABLES: 
+[Line 32] INT: factorial = 1
+[Line 42] INT: limit
+[Line 43] DOUBLE: prueba = 8 
+
+STATEMENTS: 
+[Line 33] LOOP: for
+[Line 45] LOOP: for
+
+MAIN: true
+
+COMMENTS: 
+[Lines 1 - 20] DESCRIPTION
+[Line 25] // Returns the factorial of the argument

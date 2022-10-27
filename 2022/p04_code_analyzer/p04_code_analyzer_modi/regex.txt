@@ -1,0 +1,28 @@
+"^\\s*(int|float|double)\\s*&?\\s*([^,;]*?)[,;].*$"
+     - int, flotante o doble
+     - seguido de un & opcional
+     - seguido de cualquier número de caracteres que no sean una coma o un punto y coma
+     - seguido de una coma o punto y coma
+     - seguido de cualquier número de caracteres
+
+"^\\s*(int|float|double)\\s*&?\\s*([^,;]*?)[,;].*$"
+     1. Cualquier número de caracteres de espacio en blanco
+     2. Un tipo (int, float o double)
+     3. Cualquier número de caracteres de espacio en blanco
+     4. Un ampersand opcional
+     5. Cualquier número de espacios en blanco
+     6. Un nombre de variable
+     7. Una coma o punto y coma
+     8. Cualquier número de caracteres
+   
+
+
+^(\\s*(int|float|double)\\s\\w+\\s=\\s\\w+(\\.\\w+)?.*)
+   La declaración de la variable debe ser de tipo int, float o double.
+   El nombre de la variable debe ser una sola palabra.
+   A la variable se le debe asignar un valor.
+   El valor puede ser un número o un número con un decimal.
+   El valor puede ser una variable.
+   El valor puede ser una variable con un decimal.
+   El valor puede ser una variable con un decimal y una variable.
+   El valor puede ser una variable con un decimal y una variable con un
