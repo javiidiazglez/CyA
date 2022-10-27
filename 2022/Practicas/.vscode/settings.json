@@ -44,9 +44,18 @@
     "sstream": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "condition_variable": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "map": "cpp",
+    "ratio": "cpp",
+    "regex": "cpp",
+    "shared_mutex": "cpp"
   },
   "docwriter.language": "Spanish",
-  "docwriter.style": "RustDoc",
+  "docwriter.style": "Doxygen",
   "C_Cpp.errorSquiggles": "Disabled"
 }
