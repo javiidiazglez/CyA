@@ -1,0 +1,35 @@
+3
+a
+b
+c
+9
+A
+B
+C
+D
+E
+F
+S
+X
+Y
+S
+19
+S -> AC
+S -> AD
+S -> AE
+S -> AB
+X -> AY
+X -> BY
+X -> a
+X -> b
+Y -> AY
+Y -> BY
+Y -> a
+Y -> b
+Y -> c
+A -> a
+B -> b
+C -> XF
+D -> BX
+E -> XB
+F -> BX

@@ -1,0 +1,15 @@
+2
+a
+b
+3
+A
+B
+S
+S
+S -> aS
+S -> bA
+A -> aB
+A -> bB
+B -> ε
+B -> aB
+B -> bB
